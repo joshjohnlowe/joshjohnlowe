@@ -9,7 +9,7 @@ import {
 function App() {
   return (
     <Router>
-        <Route path="/" component={Home}></Route>
+        <Route exact path="/" component={Home}></Route>
     </Router>
   );
 }

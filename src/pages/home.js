@@ -7,7 +7,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            k: 100,
+            k: 0.2,
             blobSpeed: 0.002,
             amplitude: 1.0
         }
