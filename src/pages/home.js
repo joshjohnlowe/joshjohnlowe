@@ -10,17 +10,18 @@ class Home extends React.Component {
             k: 200,
             blobSpeed: 0.002,
             amplitude: 1.0,
+            width: window.innerWidth,
         }
     }
     _onMouseMove(e) {
-        this.setState({ k: e.nativeEvent.offsetX / 2000});
+        this.setState({ k: e.nativeEvent.offsetX / this.state.width});
     }
 
     render() {
         return (
+            
             <div>
                 <div className="full_width" onMouseMove={this._onMouseMove.bind(this)}></div>
-                {/* <h1>{ x }</h1> */}
                 <Wee
                     k={this.state.k}
                     blobSpeed={this.state.blobSpeed}
