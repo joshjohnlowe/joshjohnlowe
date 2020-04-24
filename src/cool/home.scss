@@ -1,0 +1,28 @@
+@import 'vars';
+
+.left_pane{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+}
+
+.right_pane{
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    background-color: $red;
+    height: 100%;
+}
+
+
+.upper_header{
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+}
+
+.lower_header{
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+}
