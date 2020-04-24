@@ -34,7 +34,7 @@ class Wee extends React.Component {
         this.scene.add(light, directionalLight, directionalLightTwo);
         this.scene.background = new THREE.Color( 0xD24012 );
 
-        this.camera.position.set(0, 0, 5);
+        this.camera.position.set(0, 0, 4);
         this.renderer = new THREE.WebGLRenderer({
             antialias: true,
             alpha: true
