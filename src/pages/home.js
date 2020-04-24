@@ -7,15 +7,20 @@ class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            k: 0.2,
+            k: 200,
             blobSpeed: 0.002,
-            amplitude: 1.0
+            amplitude: 1.0,
         }
+    }
+    _onMouseMove(e) {
+        this.setState({ k: e.nativeEvent.offsetX / 2000});
     }
 
     render() {
         return (
             <div>
+                <div className="full_width" onMouseMove={this._onMouseMove.bind(this)}></div>
+                {/* <h1>{ x }</h1> */}
                 <Wee
                     k={this.state.k}
                     blobSpeed={this.state.blobSpeed}
@@ -36,7 +41,7 @@ class Home extends React.Component {
                         <h1>hello<span className="thin_text">@</span>joshjohnlowe.com</h1>
                     </div>
                 </div>
-                <div className="right_pane">
+                <div className="right_pane" >
 
                 </div>
             </div>
