@@ -26,10 +26,11 @@ class Wee extends React.Component {
             1000
         )
 
+
         var light = new THREE.HemisphereLight( 0xFFFFFF, 0x0000FF, 1.0 );
         var directionalLight = new THREE.DirectionalLight( 0x00FF00, 1.0 );
         var directionalLightTwo = new THREE.DirectionalLight( 0xFF0000, 1.0 );
-        directionalLightTwo.position.set(0.8, -1, 1);
+        directionalLightTwo.position.set(1, 0, 1);
     
         this.scene.add(light, directionalLight, directionalLightTwo);
         this.scene.background = new THREE.Color( 0xD24012 );
@@ -43,17 +44,15 @@ class Wee extends React.Component {
         this.renderer.setSize(width, height)
         this.mount.appendChild(this.renderer.domElement)
 
-        // this.sphere_geometry = new THREE.SphereGeometry(1, 200, 200);
+        // this.sphere_geometry = new THREE.SphereGeometry( 20, 20, 32, 32);
         this.sphere_geometry = new THREE.PlaneGeometry( 20, 20, 32, 32);
 
         var material = new THREE.MeshPhongMaterial( { 
             color: 0xFF00FF,
-            // envMap: envMap, // optional environment map
             specular: 0x050505,
             shininess: 100
         } ) 
         
-    
 
         this.sphere = new THREE.Mesh(this.sphere_geometry, material);
 

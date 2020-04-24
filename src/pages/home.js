@@ -7,14 +7,16 @@ class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            k: 200,
-            blobSpeed: 0.002,
-            amplitude: 1.0,
+            k: 0,
+            blobSpeed: 0.001,
+            amplitude: 0.0,
             width: window.innerWidth,
+            height: window.innerHeight
         }
     }
     _onMouseMove(e) {
         this.setState({ k: e.nativeEvent.offsetX / this.state.width});
+        this.setState({ amplitude: 1 - (e.nativeEvent.offsetY / this.state.height) });
     }
 
     render() {
@@ -28,6 +30,7 @@ class Home extends React.Component {
                     className="blob"
                     amplitude={this.state.amplitude}
                     roughness={this.state.roughness}
+                    color={this.state.amplitude}
                 />
                 <div className="left_pane">
                     <div className="upper_header">
