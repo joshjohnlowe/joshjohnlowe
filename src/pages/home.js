@@ -7,14 +7,9 @@ class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentPage: 'Home',
-            animationSpeed: 'red',
-            menuOpen: false,
-            k: 1,
-            shape: 1,
-            blobSpeed: 0.001,
-            amplitude: 0.1,
-            roughness: 0.0
+            k: 0.2,
+            blobSpeed: 0.002,
+            amplitude: 1.0
         }
     }
 
