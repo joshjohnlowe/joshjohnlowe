@@ -1,10 +1,33 @@
 import React from 'react';
 import '../cool/main.scss'
 
-class Home extends React.Component{
-    render(){
-        return(
+import Wee from '../components/wee.js';
+
+class Home extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            currentPage: 'Home',
+            animationSpeed: 'red',
+            menuOpen: false,
+            k: 1,
+            shape: 1,
+            blobSpeed: 0.001,
+            amplitude: 0.1,
+            roughness: 0.0
+        }
+    }
+
+    render() {
+        return (
             <div>
+                <Wee
+                    k={this.state.k}
+                    blobSpeed={this.state.blobSpeed}
+                    className="blob"
+                    amplitude={this.state.amplitude}
+                    roughness={this.state.roughness}
+                />
                 <div className="left_pane">
                     <div className="upper_header">
                         <h1>
@@ -19,7 +42,7 @@ class Home extends React.Component{
                     </div>
                 </div>
                 <div className="right_pane">
-                    
+
                 </div>
             </div>
         )

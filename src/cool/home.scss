@@ -10,7 +10,7 @@
     position: absolute;
     left: 50%;
     width: 50%;
-    background-color: $red;
+    // background-color: $red;
     height: 100%;
 }
 
@@ -26,3 +26,15 @@
     bottom: 1rem;
     left: 2rem;
 }
+
+.threeDee{
+    position: absolute;
+    left: 50%;
+    width: 50vw;
+    height: 100vh;
+    z-index: 100;
+  }
+  
+  .blob{
+    width: 100vw;
+  }
