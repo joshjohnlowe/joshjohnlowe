@@ -4,6 +4,7 @@
     position: absolute;
     width: 50%;
     height: 100%;
+    cursor: none !important;
 }
 
 .right_pane{
@@ -12,6 +13,7 @@
     width: 50%;
     // background-color: $red;
     height: 100%;
+    
 }
 
 
@@ -19,12 +21,14 @@
     position: absolute;
     top: 1rem;
     left: 2rem;
+    z-index: 20000000;
 }
 
 .lower_header{
     position: absolute;
     bottom: 1rem;
     left: 2rem;
+    z-index: 20000000;
 }
 
 .threeDee{
@@ -40,4 +44,15 @@
     width: 100%;
     height: 100%;
     z-index: 100000;
+}
+
+.nav_floater{
+    position: absolute;
+    cursor: none;
+    transform: translate(-50%, -50%);
+    
+    & h1{
+        color: white;
+    }
+    z-index: 10000;
 }

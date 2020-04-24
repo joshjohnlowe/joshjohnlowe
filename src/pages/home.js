@@ -6,23 +6,37 @@ import Wee from '../components/wee.js';
 class Home extends React.Component {
     constructor(props) {
         super(props)
+        this.nav_floater = React.createRef()
         this.state = {
             k: 0,
             blobSpeed: 0.001,
             amplitude: 0.0,
             width: window.innerWidth,
-            height: window.innerHeight
+            height: window.innerHeight,
         }
     }
     _onMouseMove(e) {
         this.setState({ k: e.nativeEvent.offsetX / this.state.width});
         this.setState({ amplitude: 1 - (e.nativeEvent.offsetY / this.state.height) });
+
+        if(e.nativeEvent.offsetY > (this.state.height / 2)){
+            this.setState({currentMode :"About"})
+        }else{
+            this.setState({currentMode : "Work"})
+        }
+
+        const navvy_boi = document.querySelector(".nav_floater")
+        navvy_boi.style.left = `${e.nativeEvent.offsetX}px`;
+        navvy_boi.style.top = `${e.nativeEvent.offsetY}px`;
     }
 
     render() {
+        var {currentMode} = this.state;
         return (
-            
             <div>
+                <div className="nav_floater" ref={this.nav_floater}>
+                    <h1>{ currentMode }</h1>
+                </div>
                 <div className="full_width" onMouseMove={this._onMouseMove.bind(this)}></div>
                 <Wee
                     k={this.state.k}
