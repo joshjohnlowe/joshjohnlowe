@@ -3,18 +3,24 @@ import '../cool/main.scss'
 
 import Wee from '../components/wee.js';
 
+import { Redirect } from 'react-router';
+
 class Home extends React.Component {
     constructor(props) {
         super(props)
-        this.nav_floater = React.createRef()
+        
         this.state = {
             k: 0,
             blobSpeed: 0.001,
             amplitude: 0.0,
             width: window.innerWidth,
             height: window.innerHeight,
+            currentMode: "",
+            redirectToAbout: false,
+            redirectToWork: false
         }
     }
+
     _onMouseMove(e) {
         this.setState({ k: e.nativeEvent.offsetX / this.state.width});
         this.setState({ amplitude: 1 - (e.nativeEvent.offsetY / this.state.height) });
@@ -30,14 +36,54 @@ class Home extends React.Component {
         navvy_boi.style.top = `${e.nativeEvent.offsetY}px`;
     }
 
+
+    _onMouseClick(e) {
+        if(e.nativeEvent.offsetX > (this.state.width / 2)){
+            if(this.state.currentMode === "About"){
+                console.log("About");
+
+                this.setState({
+                    redirectToAbout: true
+                });
+
+            }
+            else if(this.state.currentMode === "Work"){
+                console.log("Work");
+
+                this.setState({
+                    redirectToWork: true
+                });
+            }
+        }
+    }
+
+
+
     render() {
-        var {currentMode} = this.state;
+        var {currentMode, redirectToAbout, redirectToWork} = this.state;
+
+        if (redirectToAbout) {
+            return <Redirect to='/about'/>;
+        }
+
+        if (redirectToWork) {
+            return <Redirect to='/work'/>;
+        }
+
         return (
             <div>
-                <div className="nav_floater" ref={this.nav_floater}>
+                <div className="nav_floater">
                     <h1>{ currentMode }</h1>
                 </div>
-                <div className="full_width" onMouseMove={this._onMouseMove.bind(this)}></div>
+                <div 
+                className="full_width" 
+                onMouseMove={this._onMouseMove.bind(this)}
+                onMouseUp={this._onMouseClick.bind(this)}
+                >
+                <div className="half_width">
+        
+                </div>
+                </div>
                 <Wee
                     k={this.state.k}
                     blobSpeed={this.state.blobSpeed}
