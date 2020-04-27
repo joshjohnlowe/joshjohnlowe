@@ -25,6 +25,20 @@ class Home extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.timerID = setInterval(
+          () => this.tick(),
+          1
+        );
+      }
+
+      tick() {
+        this.setState({
+            date: moment().format('DD / MM / YY'),
+            time: moment().format('hh:mm:ss')
+        });
+    }
+
     _onMouseMove(e) {
         this.setState({ k: e.nativeEvent.offsetX / this.state.width});
         this.setState({ amplitude: 1 - (e.nativeEvent.offsetY / this.state.height) });
