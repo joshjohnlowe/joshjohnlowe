@@ -5,6 +5,8 @@ import Wee from '../components/wee.js';
 
 import { Redirect } from 'react-router';
 
+import * as moment from 'moment';
+
 class Home extends React.Component {
     constructor(props) {
         super(props)
@@ -17,7 +19,9 @@ class Home extends React.Component {
             height: window.innerHeight,
             currentMode: "",
             redirectToAbout: false,
-            redirectToWork: false
+            redirectToWork: false,
+            date: moment().format('DD / MM / YY'),
+            time: moment().format('hh:mm:ss')
         }
     }
 
@@ -25,15 +29,27 @@ class Home extends React.Component {
         this.setState({ k: e.nativeEvent.offsetX / this.state.width});
         this.setState({ amplitude: 1 - (e.nativeEvent.offsetY / this.state.height) });
 
-        if(e.nativeEvent.offsetY > (this.state.height / 2)){
-            this.setState({currentMode :"About"})
-        }else{
-            this.setState({currentMode : "Work"})
-        }
-
         const navvy_boi = document.querySelector(".nav_floater")
         navvy_boi.style.left = `${e.nativeEvent.offsetX}px`;
         navvy_boi.style.top = `${e.nativeEvent.offsetY}px`;
+
+        const navvy_boi_type = document.querySelector(".nav_floater h1")
+
+        if(e.nativeEvent.offsetX < (this.state.width - (this.state.width / 2))){
+            this.setState({currentMode:"*"})
+            navvy_boi_type.style.color = `#D24012`
+        }
+        else{
+            if(e.nativeEvent.offsetY > (this.state.height / 2)){
+                this.setState({currentMode :"About"})
+                navvy_boi_type.style.color = `white`
+            }else{
+                this.setState({currentMode : "Work"})
+                navvy_boi_type.style.color = `white`
+            }
+        }
+
+
     }
 
 
@@ -94,15 +110,16 @@ class Home extends React.Component {
                 />
                 <div className="left_pane">
                     <div className="upper_header">
+                        <h1> <span className="thin_text">(</span>{this.state.time}<span className="thin_text">)</span> </h1>
                         <h1>
                             Joshua John Lowe
                         </h1>
                         <h1>
-                            Software + Data Engineer
+                            Software / Data Engineer
                         </h1>
                     </div>
                     <div className="lower_header">
-                        <h1>hello<span className="thin_text">@</span>joshjohnlowe.com</h1>
+                        {/* <h1>hello<span className="thin_text">@</span>joshjohnlowe.com</h1> */}
                     </div>
                 </div>
                 <div className="right_pane" >

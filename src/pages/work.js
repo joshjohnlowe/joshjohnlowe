@@ -5,7 +5,7 @@ import { Redirect } from 'react-router';
 
 import * as moment from 'moment';
 
-class About extends React.Component {
+class Work extends React.Component {
     constructor(props) {
         super(props)
 
@@ -89,22 +89,10 @@ class About extends React.Component {
                     <div className="upper_header" >
                         <h1> <span className="thin_text">(</span>{this.state.time}<span className="thin_text">)</span> </h1>
                         <h2>
-                            Joshua Lowe is a Software / Data Engineer from Wellington, New Zealand.
-                            He has a degree in Computer Science from Victoria University of Wellington. 
+                            Work / Projects
                         </h2>
                         <h2>
-                            <span className="email_addy"
-                                onMouseOver={this._emailMouseOver.bind(this)}
-                                onMouseLeave={this._onMousegGap.bind(this)}
-                            >
-                                hello@joshjohnlowe.com
-                            </span> <br />
-                            <span className="digits"
-                                onMouseOver={this._digitsMouseOver.bind(this)}
-                                onMouseLeave={this._onMousegGap.bind(this)}
-                            >
-                                +(64) 21 073 7996
-                            </span> <br />
+                            Hello! :) 
                         </h2>
                     </div>
                 </div>
@@ -113,4 +101,4 @@ class About extends React.Component {
     }
 }
 
-export default About
+export default Work

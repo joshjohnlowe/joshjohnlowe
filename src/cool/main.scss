@@ -1,5 +1,6 @@
 @import 'type.scss';
 @import 'home.scss';
+@import 'about.scss';
 @import 'vars';
 
 body{
@@ -7,4 +8,5 @@ body{
     padding: 0px;
     overflow-x: none;
     overflow-y: none;
+    cursor: none;
 }
