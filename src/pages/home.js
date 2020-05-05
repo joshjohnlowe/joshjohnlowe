@@ -11,15 +11,13 @@ class Home extends React.Component {
 
         this.state = {
             k: 0,
-            blobSpeed: 0.001,
+            blobSpeed: 0.0005,
             amplitude: 0.0,
             width: window.innerWidth,
             height: window.innerHeight,
-            currentMode: "",
-            redirectToAbout: false,
-            redirectToWork: false,
             date: moment().format('DD / MM / YY'),
-            time: moment().format('hh:mm:ss')
+            time: moment().format('hh:mm:ss'),
+            mouseDown: false
         }
     }
 
@@ -38,58 +36,33 @@ class Home extends React.Component {
     }
 
     _onMouseMove(e) {
-        this.setState({ k: e.nativeEvent.offsetX / this.state.width });
-        this.setState({ amplitude: 1 - (e.nativeEvent.offsetY / this.state.height) });
-
-        // const navvy_boi = document.querySelector(".nav_floater")
-        // navvy_boi.style.left = `${e.nativeEvent.offsetX}px`;
-        // navvy_boi.style.top = `${e.nativeEvent.offsetY}px`;
-
-        // const navvy_boi_type = document.querySelector(".nav_floater h1")
-
-        // if(e.nativeEvent.offsetX < (this.state.width - (this.state.width / 2))){
-        //     this.setState({currentMode:"*"})
-        //     navvy_boi_type.style.color = `#D24012`
-        // }
-        // else{
-        //     if(e.nativeEvent.offsetY > (this.state.height / 2)){
-        //         this.setState({currentMode :"About"})
-        //         navvy_boi_type.style.color = `white`
-        //     }else{
-        //         this.setState({currentMode : "Work"})
-        //         navvy_boi_type.style.color = `white`
-        //     }
-        // }
-
-
-    }
-
-
-    _onMouseClick(e) {
-        if (e.nativeEvent.offsetX > (this.state.width / 2)) {
-            if (this.state.currentMode === "About") {
-                console.log("About");
-
-                this.setState({
-                    redirectToAbout: true
-                });
-
-            }
-            else if (this.state.currentMode === "Work") {
-                console.log("Work");
-
-                this.setState({
-                    redirectToWork: true
-                });
-            }
+        if(this.state.mouseDown === false){
+            this.setState({ k: e.nativeEvent.offsetX / this.state.width });
+            this.setState({ amplitude: 1 - (e.nativeEvent.offsetY / this.state.height) });
         }
     }
 
+    _onMouseDown(e) {
+        this.setState({ mouseDown: true })
+        this.setState({ k: 1000 });
+        this.setState({ amplitude: 0.1 });
+        this.setState({blobSpeed: 0.002 });
+    }
+
+    _onMouseRelease(e){
+        this.setState({ mouseDown: false })
+        this.setState({blobSpeed: 0.0005 });
+        this.setState({ k: 0 });
+    }
 
 
     render() {
         return (
-            <div>
+            <div 
+            onMouseMove={this._onMouseMove.bind(this)} 
+            onMouseDown={this._onMouseDown.bind(this)}
+            onMouseUp={this._onMouseRelease.bind(this)}
+            >
                 <div className="left_pane">
                     <div className="upper_header">
                         <h1> <span className="thin_text">(</span>{this.state.time}<span className="thin_text">)</span> </h1>
@@ -100,24 +73,20 @@ class Home extends React.Component {
                         <br />
                         I used to develop websites,
                         <br />
-                        but now I work for <a className="trade_me_yellow" href="https://trademe.co.nz">Trade Me</a> 
+                        but now I work for <a target="_blank" onMouseEnter={this._onMouseDown.bind(this)}
+            onMouseLeave={this._onMouseRelease.bind(this)} className="trade_me_yellow" href="https://www.trademe.co.nz">Trade Me</a> 
                         <br />
                         as a Data Engineer.
                         </h2>
                     </div>
-                    <div className="lower_header">
+                    <div className="lower_header"             onMouseEnter={this._onMouseDown.bind(this)}
+            onMouseLeave={this._onMouseRelease.bind(this)}>
                         <h1>hello<span className="thin_text">@</span>joshjohnlowe.com</h1>
                         <h1><span className="thin_text">+(</span>64<span className="thin_text">)</span> 21 073 7996</h1>
                     </div>
                 </div>
                 <div className="right_pane" >
 
-                </div>
-                <div
-                    className="full_width"
-                    onMouseMove={this._onMouseMove.bind(this)}
-                    onMouseUp={this._onMouseClick.bind(this)}
-                >
                 </div>
                 <Wee
                     k={this.state.k}

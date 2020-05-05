@@ -28,20 +28,13 @@
     position: absolute;
     bottom: 1rem;
     left: 2rem;
-
-    h1{
-        :hover{
-            cursor: pointer;
-            color: blue;
-        }
-    }
 }
 
 .threeDee{
     @include for-phone-only {
         display: none;
     }
-    
+
     position: fixed;
     left: 0rem;
     width: 100%;
