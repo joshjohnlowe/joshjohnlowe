@@ -8,5 +8,8 @@ body{
     padding: 0px;
     overflow-x: none;
     overflow-y: none;
-    cursor: none;
+
+    @include for-phone-only {
+        background-color: #FFF1E7;
+    }
 }

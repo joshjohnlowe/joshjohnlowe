@@ -75,7 +75,7 @@ class About extends React.Component {
             <div onMouseMove={this._onMouseMove.bind(this)}
                 onMouseUp={this._onMouseClick.bind(this)}>
                 <div className="nav_image">
-                    <img src={require("../media/back_arrow.svg")}/>
+                    <img src={require("../media/back_arrow.svg")} alt="back_arrow"/>
                 </div>
                 <div
                     className="full_width"
@@ -89,8 +89,11 @@ class About extends React.Component {
                     <div className="upper_header" >
                         <h1> <span className="thin_text">(</span>{this.state.time}<span className="thin_text">)</span> </h1>
                         <h2>
-                            Joshua Lowe is a Software / Data Engineer from Wellington, New Zealand.
-                            He has a degree in Computer Science from Victoria University of Wellington. 
+                        Kia Ora, my name is Josh. 
+                        <br/>
+                        I'm from Wellington, New Zealand. 
+                        <br/>
+                        I used to make websites, but now I work for <a className="trade_me_yellow" href="https://trademe.co.nz">Trade Me</a> as a Data Engineer.
                         </h2>
                         <h2>
                             <span className="email_addy"

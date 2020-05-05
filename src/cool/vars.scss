@@ -1,1 +1,6 @@
-$red:#D24012;
+// $red:#D24012;
+$red: white;
+
+@mixin for-phone-only {
+    @media (max-width: 599px) { @content; }
+}

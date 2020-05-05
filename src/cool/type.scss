@@ -1,20 +1,27 @@
 @import 'vars';
 
 h1, h2, h3, a, p {
-    color: $red
+    color: black;
 }
 
 h1 {
     font-family: 'Heebo', sans-serif;
     font-weight: 300;
-    font-size: 48px;
+    font-size: 32px;
     line-height: 24px;
+
+    @include for-phone-only {
+        font-size: 18px;
+    }
 }
 
 h2 {
     font-family: 'Heebo', sans-serif;
     font-weight: 300;
-    font-size: 48px;
+    font-size: 32px;
+    @include for-phone-only {
+        font-size: 18px;
+    }
 }
 
 a {

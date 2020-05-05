@@ -75,7 +75,7 @@ class Work extends React.Component {
             <div onMouseMove={this._onMouseMove.bind(this)}
                 onMouseUp={this._onMouseClick.bind(this)}>
                 <div className="nav_image">
-                    <img src={require("../media/back_arrow.svg")}/>
+                    <img src={require("../media/back_arrow.svg")} alt="back_text"/>
                 </div>
                 <div
                     className="full_width"
