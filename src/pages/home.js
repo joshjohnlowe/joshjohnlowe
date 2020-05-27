@@ -67,7 +67,7 @@ class Home extends React.Component {
                     <div className="upper_header">
                         <h1> <span className="thin_text">(</span>{this.state.time}<span className="thin_text">)</span> </h1>
                         <h2>
-                        Kia Ora, my name is <span className="fat_text">Joshua Lowe.</span>
+                        Kia Ora, my name is <span className="fat_text">Josh.</span>
                         <br />
                         I'm from Wellington, New Zealand.
                         <br />
