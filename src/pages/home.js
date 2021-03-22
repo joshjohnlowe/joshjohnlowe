@@ -1,8 +1,6 @@
 import React from 'react';
 import '../cool/main.scss'
 
-import Wee from '../components/wee.js';
-
 import * as moment from 'moment';
 
 class Home extends React.Component {
@@ -58,11 +56,7 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div 
-            onMouseMove={this._onMouseMove.bind(this)} 
-            onMouseDown={this._onMouseDown.bind(this)}
-            onMouseUp={this._onMouseRelease.bind(this)}
-            >
+            <div className="global_wrapper">
                 <div className="left_pane">
                     <div className="upper_header">
                         <h1> <span className="thin_text">(</span>{this.state.time}<span className="thin_text">)</span> </h1>
@@ -73,7 +67,7 @@ class Home extends React.Component {
                         <br />
                         I used to develop websites,
                         <br />
-                        but now I work for <a target="_blank" onMouseEnter={this._onMouseDown.bind(this)}
+                        but now I work for <a onMouseEnter={this._onMouseDown.bind(this)}
             onMouseLeave={this._onMouseRelease.bind(this)} className="trade_me_yellow" href="https://www.trademe.co.nz">Trade Me</a> 
                         <br />
                         as a Data Engineer.
@@ -86,16 +80,62 @@ class Home extends React.Component {
                     </div>
                 </div>
                 <div className="right_pane" >
-
+                    <div className="upper_header">
+                        <h1 className="big_boi_text">Work experience</h1>
+                        <h2 className="trade_me_yellow">Trade Me / Data Engineer</h2>
+                        <h2>
+                        Responsible for the development, and maintenance of cloud-based technical solutions that empower analysts and data scientists around the company.
+                        Notable projects include an in-house workflow orchestration service, a real-time streaming platform on AWS, and several data warehouses.
+                        <br/>
+                        <br/>
+                        Technologies
+                        <br/>
+                        AWS (S3, EC2, Lambda, EMR, Glue, Athena, Kinesis and more) 
+                        <br/>
+                        Python
+                        <br/>
+                        Prefect / Prefect Cloud
+                        <br/>
+                        DBT 
+                        </h2>
+                        <h2 className="trade_me_yellow">Sunny side up / Web developer </h2>
+                        <h2>
+                        Worked on the development of websites for local businesses, and government departments. Worked with Vue, PHP, and Silverstripe CMS.
+                        <br/>
+                        <br/>
+                        Technologies
+                        <br/>
+                        Vue and React
+                        <br/>
+                        HTML/CSS/Javascript
+                        <br/>
+                        PHP
+                        <br/>
+                        Silverstripe CMS 
+                        </h2>
+                        <h1 className="big_boi_text">Education</h1>
+                        <h2>Victoria University of Wellington
+                        <br/>
+                        Bachelor of Science 
+                        <br/>
+                        2016 - 2019 
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        
+                        </h2>                                                
+                    </div>
                 </div>
-                <Wee
-                    k={this.state.k}
-                    blobSpeed={this.state.blobSpeed}
-                    className="blob"
-                    amplitude={this.state.amplitude}
-                    roughness={this.state.roughness}
-                    color={this.state.amplitude}
-                />
+                <div className="hireme"> 
+                    <img className="badge" alt="Fancy spinning badge" src={require("../media/hireme.png")}></img>
+                    <h3 className="text">
+                        OPEN TO WORK <br/>
+                        IN LONDON FROM <br/>
+                        30 NOVEMBER 2021
+                    </h3>
+                </div>
             </div>
         )
     }
