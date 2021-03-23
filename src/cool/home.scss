@@ -1,7 +1,7 @@
 @import 'vars';
 
 body {
-    overflow: none;
+    overflow: hidden;
     @include for-phone-only{
         overflow: scroll;
     }
@@ -35,6 +35,7 @@ body {
     z-index: 1000001;
     overflow: scroll;
     transition: 1s;
+    overflow-x: hidden;
 
     @include for-phone-only {
         width: 100%;
