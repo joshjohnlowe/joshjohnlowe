@@ -71,6 +71,9 @@ class Home extends React.Component {
             onMouseLeave={this._onMouseRelease.bind(this)} className="trade_me_yellow" href="https://www.trademe.co.nz">Trade Me</a> 
                         <br />
                         as a Data Engineer.
+                        <br/>
+                        <br/>
+                        
                         </h2>
                     </div>
                     <div className="lower_header"             onMouseEnter={this._onMouseDown.bind(this)}
@@ -131,9 +134,9 @@ class Home extends React.Component {
                 <div className="hireme"> 
                     <img className="badge" alt="Fancy spinning badge" src={require("../media/hireme.png")}></img>
                     <h3 className="text">
-                        OPEN TO WORK <br/>
-                        IN LONDON FROM <br/>
-                        30 NOVEMBER 2021
+                        RELOCATING TO<br/>
+                        LONDON IN<br/>
+                        AUGUST 2021
                     </h3>
                 </div>
             </div>
